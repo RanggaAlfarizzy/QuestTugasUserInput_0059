@@ -7,4 +7,9 @@
     <dimen name="card_corner">24dp</dimen>
     <dimen name="card_elevation">10dp</dimen>
     <dimen name="content_padding">18dp</dimen>
+
+    <dimen name="small_spacing">8dp</dimen>
+    <dimen name="field_spacing">12dp</dimen>
+    <dimen name="field_corner">14dp</dimen>
+    <dimen name="skill_spacing">14dp</dimen>
 </resources>
