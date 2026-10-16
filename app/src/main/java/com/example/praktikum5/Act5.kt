@@ -323,3 +323,19 @@ fun Act5(modifier: Modifier = Modifier) {
                 }
             }
         }
+
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(16.dp)
+        ) { data ->
+            Snackbar {
+                Text(
+                    text = data.visuals.message,
+                    maxLines = 6
+                )
+            }
+        }
+    }
+}
