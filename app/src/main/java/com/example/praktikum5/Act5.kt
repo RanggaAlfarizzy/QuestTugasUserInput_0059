@@ -3,32 +3,12 @@ package com.example.praktikum5
 import android.app.DatePickerDialog
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ElevatedCard
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -38,6 +18,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import java.util.Calendar
 
 @Composable
@@ -261,4 +243,83 @@ fun Act5(modifier: Modifier = Modifier) {
                             }
                         }
                     }
-}
+
+                    Spacer(Modifier.height(dimensionResource(R.dimen.skill_spacing)))
+
+                    Text(
+                        text = stringResource(R.string.pilih_skill),
+                        modifier = Modifier.fillMaxWidth(),
+                        color = colorResource(R.color.form_text),
+                        fontWeight = FontWeight.Bold
+                    )
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(android, { android = it })
+                            Text(
+                                stringResource(R.string.skill_android),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(uiux, { uiux = it })
+                            Text(
+                                stringResource(R.string.skill_uiux),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(web, { web = it })
+                            Text(
+                                stringResource(R.string.skill_web),
+                                style = MaterialTheme.typography.labelSmall
+                            )
+                        }
+                    }
+
+                    Spacer(Modifier.height(dimensionResource(R.dimen.button_spacing)))
+
+                    val skillText = skills.joinToString().ifEmpty {
+                        stringResource(R.string.skill_kosong)
+                    }
+
+                    val pesan = stringResource(R.string.toast_title) + "\n" +
+                            stringResource(R.string.data_nama, depan, belakang) + "\n" +
+                            stringResource(R.string.data_email, email) + "\n" +
+                            stringResource(R.string.data_tanggal, tanggal) + "\n" +
+                            stringResource(R.string.data_pengalaman, pengalaman) + "\n" +
+                            stringResource(R.string.data_skill, skillText)
+
+                    Button(
+                        onClick = {
+                            scope.launch {
+                                snackbarHostState.showSnackbar(
+                                    message = pesan,
+                                    duration = SnackbarDuration.Long
+                                )
+                            }
+                        },
+                        enabled = depan.isNotBlank() &&
+                                belakang.isNotBlank() &&
+                                email.isNotBlank() &&
+                                tanggal.isNotBlank() &&
+                                pengalaman.isNotBlank() &&
+                                (android || uiux || web),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(dimensionResource(R.dimen.button_height)),
+                        shape = RoundedCornerShape(
+                            dimensionResource(R.dimen.button_corner)
+                        )
+                    ) {
+                        Text(stringResource(R.string.proceed))
+                    }
+                }
+            }
+        }
