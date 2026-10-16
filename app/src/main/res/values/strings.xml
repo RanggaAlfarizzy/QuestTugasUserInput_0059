@@ -25,4 +25,12 @@
 
     <string name="ikon_kalender">▦</string>
     <string name="ikon_dropdown">▼</string>
+
+    <string name="toast_title">Biodata submitted</string>
+    <string name="data_nama">Nama: %1$s %2$s</string>
+    <string name="data_email">Email: %1$s</string>
+    <string name="data_tanggal">Tanggal lahir: %1$s</string>
+    <string name="data_pengalaman">Experience: %1$s</string>
+    <string name="data_skill">Skills: %1$s</string>
+    <string name="skill_kosong">Belum memilih skill</string>
 </resources>
