@@ -12,4 +12,8 @@
     <dimen name="field_spacing">12dp</dimen>
     <dimen name="field_corner">14dp</dimen>
     <dimen name="skill_spacing">14dp</dimen>
+
+    <dimen name="button_spacing">24dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="button_corner">12dp</dimen>
 </resources>
