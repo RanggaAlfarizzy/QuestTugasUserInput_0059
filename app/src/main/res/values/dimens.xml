@@ -2,4 +2,9 @@
 <resources>
     <dimen name="header_height">250dp</dimen>
     <dimen name="card_top_position">220dp</dimen>
+
+    <dimen name="card_margin">20dp</dimen>
+    <dimen name="card_corner">24dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="content_padding">18dp</dimen>
 </resources>
