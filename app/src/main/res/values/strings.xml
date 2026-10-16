@@ -22,4 +22,7 @@
     <string name="pengalaman_pemula">Pemula</string>
     <string name="pengalaman_menengah">Menengah</string>
     <string name="pengalaman_ahli">Ahli</string>
+
+    <string name="ikon_kalender">▦</string>
+    <string name="ikon_dropdown">▼</string>
 </resources>
