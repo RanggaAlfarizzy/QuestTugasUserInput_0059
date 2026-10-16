@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="form_card">#FFFFFF</color>
+    <color name="form_purple">#7544C8</color>
+    <color name="form_subtitle">#858585</color>
+    <color name="form_text">#252525</color>
+    <color name="form_background">#F8F7FC</color>
 </resources>
